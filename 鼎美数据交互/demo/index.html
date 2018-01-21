@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.8.3.min.js"></script>
+</head>
+<body>
+用户名<input type="text" name="username" id="a" onblur="funname()"/>
+密码<input type="text" name="password" id="b" onblur="funpwd()"/>
+验证码<input type="text" id="c"/><img src="index.php" />
+<p id="demop"></p>
+<button onclick="funbtn()">注册</button>
+<script>
+        function funname(){
+            var nameval=$("#a").val();
+            var demop=$("#demop");
+            if(nameval==""){
+                demop.html("用户名不能为空")
+                return false;
+            }
+            if(nameval.length<6){
+                demop.html("用户名不能为小于6位")
+                return false;
+            }
+            demop.html("")
+            return true;
+        }
+    function funpwd(){
+        var demop=$("#demop");
+        var pwdval=$("#b").val();
+        if(pwdval==""){
+            demop.html("密码不能为空")
+            return false;
+        }
+        if(pwdval.length<6){
+            demop.html("密码不能为小于6位")
+            return false;
+        }
+        demop.html("")
+        return true;
+    }
+    
+    
+    
+    function sub(){
+    	if(funname()==false){
+    		return false;
+    	}
+    	if(funpwd()==false){
+    		return false;
+    	}
+    	return true;
+    }
+    
+    
+    function funbtn(){
+    	var yanzhen=$("#c").val();
+    	var suba=sub();
+    	if(suba){
+    		$.ajax({
+        		type:'post',
+        		url:"zhuce.php?act=yanzhengma",
+        		data:{"yz":yanzhen},
+        		success:function(data){
+        			
+        			if(data=="ok"){
+        				
+        				 var nameval=$("#a").val();
+        			     var pwdval=$("#b").val();
+        				/* 发送ajax到后台注册 */
+        				$.ajax({
+        					type:"post",
+        					url:"zhuce.php?act=zhuce",
+        					data:{"username":nameval,"password":pwdval},
+        					success:function(data){
+        						if(data=="ok"){
+        							alert("注册成功");
+        							location.href="login.html";
+        						}
+        					}
+        				})
+        			}else{
+            			alert("验证码有问题");
+            		}
+        		}
+        	})
+    	}
+    	
+    	
+    	
+    }
+</script>
+</body>
+</html>

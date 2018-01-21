@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="zhuce.css"/>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script src="zhuce.js"></script>
+</head>
+<body>
+  <div id="demo">
+      <div  id="one">
+          <div id="one1">
+              <ul>
+                  <li>
+                      <a href="#" class="one11"><img src="images/icons/icon1.png" /></a>
+                      <a href="#" class="one12">400-8200-800</a></li>
+                  <li>
+                      <a href="#" class="one13">关注我们</a>
+                      <a href="#"  class="one14"> <img src="images/icons/icon2.png" />  </a></li>
+                  <li>
+                      <a href="#"  class="one15">手机客户端  </a>
+                      <a href="#" class="one16" ><img src="images/icons/icon4.png" /></a></li>
+                  <li>
+                      <a href="#" class="one17"><img src="images/icons/icon5.png" /></a>
+                      <a href="#" class="one18"><span>登陆</span></a></li>
+                  <li><a href="#" class="one19">注册</a></li>
+
+              </ul>
+          </div>
+          <div class="clear"></div>
+          <div id="one2">
+              <div class="one21">
+                  <a href="#">
+                      <img src="images/imgs/logo.png"/>
+                  </a>
+              </div>
+              <div class="one22">
+                  <ul>
+                      <li><a href="#">首页</a></li>
+                      <li><a href="#">金融超市</a></li>
+                      <li><a href="#">安全中心</a></li>
+                      <li><a href="#">帮助中心</a></li>
+                      <li><a href="#">关于我们</a></li>
+                  </ul>
+
+              </div>
+          </div>
+          <div class="clear"></div>
+   </div>
+    <div id="three">
+    <div class="three1">
+        <a href="#" class="three11">填写账户信息</a>
+        <a href="#" class="three12">已注册?现在就&nbsp;<span>登陆</span></a>
+    </div>
+        <div class="three2">
+            <form action="" method="post" name="myform"  onsubmit="return demo()">
+                <label for="phone">手机号码/邮箱</label>
+                <input type="text"  value="请输入正确的手机号/邮箱" id="phone" class="t1" onblur="checkEmail()" onfocus="demoEmail()"/>
+                <div id="SYY"></div>
+                <label for="pas">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                <input type="password"  id="pas" class="t1"  onblur="checkPass()"/><br/>
+                <div id="PASY"></div>
+                <label for="you" id="sh">手机/邮箱验证码</label>
+                <input type="password"  value="请输入验证码" id="you"  class="t2"/>
+                <input type="button"  value="发送验证码" id="youx" class="t4"/><br/>
+                <div id="SYZY"></div>
+                <label for="yan" id="yan1">验&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;&nbsp;码</label>
+                <input type="text" id="yan" class="t3"/>
+                <a href="javascript:void(0)"><img src="index.php" class="img1"id="image"/></a> 
+                <a href="javascript:void(0)"><img src="images/imgs/yjt.png"  class="img2" onclick="funs()"/></a><br/>
+                <div class="clear"></div>
+                <div id="YZMY"></div>
+                <label for="yao">邀&nbsp;&nbsp;&nbsp;请&nbsp;&nbsp;&nbsp;码</label>
+                <input type="text"  value="请输入邀请码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;没有可不填" id="yao" class="t1"/><br/>
+                <input type="radio" id="radi"/><a href="#" id="rad">我已阅读并同意鼎美金融 <span>《使用协议》</span>及 <span> 《隐私条款》</span></a>
+                <br/> <input type="button" value="注册" id="zhu" onclick="fun()"/>
+            </form>
+        </div>
+        <div class="three3">
+            <img src="images/imgs/scode.png" />
+        </div>
+    </div>
+      <div id="seven">
+          <div class="seven3">
+              <div class="seven31"><img src="images/imgs/logo.png"/></div>
+              <div class="seven32">
+                  <ul>
+                      <li ><span>使用说明</span></li>
+                      <li>新手上路</li>
+                      <li>投资技巧</li>
+                      <li>借款技巧</li>
+                  </ul>
+              </div>
+              <div class="seven33">
+                  <ul>
+                      <li><span>关于我们</span>
+                      <li>公司介绍</li>
+                      <li>运营团队</li>
+                      <li>合作伙伴</li>
+                      <li>联系我们</li></ul>
+              </div>
+              <div class="seven34">
+                  <ul>
+                      <li><span>法律保障</span></li>
+                      <li>政策法规</li>
+                      <li>安全保障</li>
+                      <li>隐私保护</li>
+                      <li>法律声明</li>
+                  </ul>
+              </div>
+              <div class="seven35">
+                  <ul>
+                      <li><span>常见问题</span></li>
+                      <li>关于投资</li>
+                      <li>关于借款</li>
+                      <li>充值提现</li>
+                  </ul>
+              </div>
+              <div class="seven36">
+                  <a href="#"><span>关于我们</span><br/>
+                      <img src="images/imgs/weixin.jpg"> </a>
+              </div>
+              <div class="seven38">
+                  <a href="#">在线客服 <br/>400-000-0000 <br/><span>工作日：9:00-18:00 </span> </a>
+              </div>
+              <div class="seven37"><a href="#">&copy;2015鼎美金融All&nbsp; rights reserved&nbsp; &nbsp; &nbsp; 版权所有：深圳前海鼎美资产管理有限公司</a></div>
+          </div>
+      </div>
+ </div>
+
+</body>
+<script>
+function funs(){
+	document.getElementById("image").src="index.php?"+Math.random();
+}
+</script>
+</html>

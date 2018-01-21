@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="jquery-1.8.3.min.js"></script>
+    <title></title>
+</head>
+<body>
+<p id="demop"></p>
+用户名：<input type="text" id="a" onblur="funname()"/>
+密码：<input type="text" id="b" onblur="funpwd()"/>
+7天面登录 <input type="checkbox" id="d"/>
+验证码 <input type="text" id="c"/>
+<img src="index.php" />
+
+<button onclick="login()">登录</button>
+<script>
+    function funname(){
+        var nameval=$("#a").val();
+        var demop=$("#demop");
+        if(nameval==""){
+            demop.html("用户名不能为空")
+            return false;
+        }
+        if(nameval.length<6){
+            demop.html("用户名不能为小于6位")
+            return false;
+        }
+        demop.html("")
+        return true;
+    }
+    function funpwd(){
+        var demop=$("#demop");
+        var pwdval=$("#b").val();
+        if(pwdval==""){
+            demop.html("密码不能为空")
+            return false;
+        }
+        if(pwdval.length<6){
+            demop.html("密码不能为小于6位")
+            return false;
+        }
+        demop.html("")
+        return true;
+    }
+
+    function sub(){
+        if(funname()==false){
+            return false;
+        }
+        if(funpwd()==false){
+            return false;
+        }
+        return true;
+    }
+    /* 判断复选框是否被勾选 */
+    function checked(){
+        var check=$("#d");
+        if(check.attr("checked")=="checked"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    function login(){
+        var suba=sub();
+        var yanzhnginput=$("#c").val();
+        if(suba){
+            $.ajax({
+                type:"post",
+                url:"zhuce.php?act=yanzhengma",
+                data:{"yz":yanzhnginput},
+                success:function(data){
+                    /* 	判断验证码是否成功 */
+                    if(data=="ok"){
+                        var nameval=$("#a").val();
+                        var pwdval=$("#b").val();
+                        /* 判断复选框是否被勾选 */
+                        var checken=checked();
+                        if(checken==true){
+                            alert("被勾选啦");
+                            $.ajax({
+                                type:"post",
+                                url:"zhuce.php?act=login",
+                                data:{"username":nameval,"password":pwdval,"check":"1"},
+                                success:function(data){
+                                   location.href="ok.html";
+                                }
+                            })
+                        }else{
+                            alert("没有被勾选");
+                            $.ajax({
+                                type:"post",
+                                url:"zhuce.php?act=login",
+                                data:{"username":nameval,"password":pwdval,"check":"0"},
+                                success:function(data){
+                                	 location.href="ok.html";
+                                }
+                            })
+                        }
+                    }else{
+                        alert("验证码失败")
+                    }
+
+                }
+            })
+        }
+    }
+
+</script>
+</body>
+</html>
